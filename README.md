@@ -5,10 +5,15 @@
 2. Uruchom aplikację
 
 3. Sprawdz zawartość bazy danych filmów (przy użyciu przeglądarki http://localhost:8080/movies
-lub w terminalu Windows poleceniem: curl -i -X GET http://localhost:8080/movies)
+lub w terminalu Windows poleceniem:
+```
+curl -i -X GET http://localhost:8080/movies)
+```
 
 4. Dodaj film przy użyciu polecenia:
+```
 curl -i -X POST -H 'Content-Type: application/json' -d '{"title": "Skazani na Shawshank", "releaseDate":"1995-04-16"}' http://localhost:8080/movies
+```
 a następnie sprawdź rezultat tak jak w punkcie 3.
 
 5.  W pliku pom.xml dodaj zależności do odpowiednich bibliotek które umożliwią nam zapis danych w bazie danych
@@ -32,10 +37,12 @@ a następnie sprawdź rezultat tak jak w punkcie 3.
 Dzięki odpowiedniej konfiguracji (która znajduje się w pliku application.properties) nie musimy różnież martwić się o aktualność struktury danych (struktura bazy będzie się zmieniała podczas ćwiczeń),
 
 Skonfiguruj adres bazy danych, sterownik bazy danych, użytkownika do połączenia i hasło. Aby to zrobić dodaj w pliku application.properties poniższe linijki:
+```
 spring.datasource.url=jdbc:h2:mem:testdb
 spring.datasource.driverClassName=org.h2.Driver
 spring.datasource.username=sa
 spring.datasource.password=
+```
 
 7. Zbuduj projekt w celu pobrania zależności (mvn install lub przy użyciu IDE), uruchom aplikację, sprawdź pod adresem http://localhost:8080/h2-console czy dostępna jest konsola bazy danych H2
 (ustaw "JDBC URL:" jako: jdbc:h2:mem:test , pozostałe dane bez zmian). Podczas prac przy użyciu konsoli będzie można podejrzeć dane znajdujące się w bazie.
